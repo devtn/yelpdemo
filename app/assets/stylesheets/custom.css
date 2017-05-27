@@ -7,11 +7,15 @@
 .navbar-default {
   .container-fluid {
     background-color: #b80b03;
+
+    /*navbar text color*/
     .navbar-nav > li > a {
       color: #ffffff;
       font-size: 16px;
       font-weight: bold;
     }
+
+    /*LOGO FONT AND COLOR*/
     .navbar-brand {
       color: black;
       font-size: 30px;

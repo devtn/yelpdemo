@@ -2,6 +2,9 @@
 <html>
   <head>
     <title>Yelpdemo</title>
+
+    <%= render 'layouts/bootstrap' %>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,13 +12,24 @@
   </head>
 
     <!-- include partial form called bootstrap -->
-   <%= render 'layouts/bootstrap' %>
 
   <body>
- 
   <%= render 'layouts/navbar' %>
+
   <div class="container-fluid">
-      
+
+    <!-- alert notifiation for users gem Devise --> 
+    <!-- <p class="notice"><%= notice %></p> -->
+    <!-- <p class="alert"><%= alert %></p>   -->
+    <% flash.each do |name, msg| %>
+      <% if msg.is_a?(String) %>
+        <div class="alert alert-<%= name == "notice" ? "success" : "danger" %> alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        </div>
+      <% end %>
+    <% end %>
+    
     <%= yield %>
 
     <%= render 'layouts/footer' %>

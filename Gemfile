@@ -66,4 +66,12 @@ gem "fog-aws"
 gem "figaro"
 
 
+gem "mini_magick"
+
+# handle user authentication
+gem 'devise'
+
+
+
+
 
